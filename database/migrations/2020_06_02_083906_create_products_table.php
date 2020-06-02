@@ -17,11 +17,11 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('title', 100); // VARCHAR 100
             $table->text('description'); // TEXT NULL
-            $table->decimal('price', 8, 2);	
+            $table->decimal('price', 8, 2);
             $table->enum('size', ['small', 'medium', 'large', 'extra-large']);
-            $table->string('url_image'); 
+            $table->string('url_image');
             $table->enum('status', ['published', 'unpublished'])->default('unpublished');
-            $table->enum('code', ['solde', 'new']);
+            $table->enum('code', ['solde', 'standard']);
             $table->string('reference', 200); // VARCHAR 200
             $table->timestamps();
         });
