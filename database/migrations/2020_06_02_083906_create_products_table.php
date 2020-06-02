@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->enum('size', ['small', 'medium', 'large', 'extra-large']);
             $table->string('url_image');
             $table->enum('status', ['published', 'unpublished'])->default('unpublished');
-            $table->enum('code', ['solde', 'standard']);
+            $table->enum('code', ['solde', 'new']);
             $table->string('reference', 200); // VARCHAR 200
             $table->timestamps();
         });
