@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('title', 100); // VARCHAR 100
             $table->text('description'); // TEXT NULL
             $table->decimal('price', 8, 2);
-            $table->enum('size', ['small', 'medium', 'large', 'extra-large']);
+            $table->enum('size', ['46', '48', '50', '52']);
             $table->string('url_image');
             $table->enum('status', ['published', 'unpublished'])->default('unpublished');
             $table->enum('code', ['solde', 'new']);

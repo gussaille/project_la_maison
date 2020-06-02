@@ -17,8 +17,7 @@ class FrontController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate($this->paginate);
-
+        $products = factory(Product::class, 50)->create();
         return view('front.home', ['products' => $products]);
     }
 

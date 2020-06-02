@@ -18,7 +18,7 @@
         </div>
     @endforeach
 
-    {{ $products->links() }}
+{{--    {{ $products->links() }}--}}
 
 
 
