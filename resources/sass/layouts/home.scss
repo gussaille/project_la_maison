@@ -1,5 +1,14 @@
+.home-thumbnail{
+    border-radius: 14px;
+    padding: 20px;
+    &:hover {
+        box-shadow: 1px 1px 40px #eaeaea;
+    }
+}
 .img-thumbnail {
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
+    display: block;
     height: 300px !important;
     object-fit: cover;
 }

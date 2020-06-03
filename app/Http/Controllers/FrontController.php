@@ -8,7 +8,7 @@ use App\Product;
 
 class FrontController extends Controller
 {
-    private $paginate = 5;
+    private $paginate = 6;
 
     /**
      * Display a listing of the resource.
@@ -17,7 +17,13 @@ class FrontController extends Controller
      */
     public function index()
     {
-        $products = factory(Product::class, 50)->create();
+        $products = Product::paginate($this->paginate);
+
+        view()->composer('partials.menu', function ($view) {
+            $category = Category::pluck('title', 'id')->all();
+            $view->with('category', $category);
+        });
+
         return view('front.home', ['products' => $products]);
     }
 
@@ -48,9 +54,16 @@ class FrontController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(int $id)
     {
-        //
+        $product = Product::with('category')->findOrFail($id);
+
+        view()->composer('partials.menu', function ($view) {
+            $category = Category::pluck('title', 'id')->all();
+            $view->with('category', $category);
+        });
+
+        return view('front.show', ['product' => $product]);
     }
 
     /**
@@ -85,5 +98,33 @@ class FrontController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function showCategory(int $id){
+
+        $category = Category::findOrFail($id);
+
+        $products = $category->products()->with('category')->paginate($this->paginate);
+
+        view()->composer('partials.menu', function ($view) {
+            $category = Category::pluck('title', 'id')->all();
+            $view->with('category', $category);
+        });
+
+        return view('front.category', [
+            'products' => $products,
+            'category' => $category
+        ]);
+    }
+
+    public function showSales(int $id){
+
+        $category = Category::findOrFail($id);
+
+        $products = $category->products()->with('category')->paginate($this->paginate);
+
+        return view('front.sales', [
+            'products' => $products,
+        ]);
     }
 }

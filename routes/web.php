@@ -12,5 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('show/{id}', 'FrontController@show')->name('show_product');
+
+Route::get('category/{id}', 'FrontController@showCategory')->name('show_product_category');
+
+Route::get('sales', 'FrontController@showSales')->name('show_product_sales');
+
 
 Route::get('/', 'FrontController@index')->name('home');

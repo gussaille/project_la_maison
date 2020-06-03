@@ -1,10 +1,37 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+.home-thumbnail {
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.home-thumbnail:hover {
+  box-shadow: 1px 1px 40px #eaeaea;
+}
+
 .img-thumbnail {
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
+  display: block;
   height: 300px !important;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.product-img {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar {
+  border-bottom: 1px solid lightgrey !important;
+  margin-bottom: 15px;
 }
 
 /*!
