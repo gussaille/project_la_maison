@@ -21,6 +21,6 @@ $factory->define(Product::class, function (Faker $faker) {
         'status' => $faker->randomElement(['published', 'unpublished']),
         'code' => $faker->randomElement(['solde', 'new']),
         'category_id' => $faker->randomElement(['1','2']),
-        'reference' => $faker->ean8()
+        'reference' => $faker->md5()
     ];
 });

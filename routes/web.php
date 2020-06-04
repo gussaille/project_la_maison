@@ -14,17 +14,28 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/product/create', 'ProductController@create');
+Route::get('/product/create', 'ProductController@create')->name('product.create');
+
+Route::get('/product/{id}/edit', 'ProductController@edit')->name('product.edit');
+
+Route::put('/product/{id}', 'ProductController@update')->name('product.update');
 
 Route::post('/product', 'ProductController@store')->name('product.store');
 
+Route::post('/product', 'ProductController@store')->name('product.store');
+
+Route::delete('/product/{id}', 'ProductController@destroy')->name('product.destroy');
+
+
 Route::get('/admin', 'ProductController@index')->name('product.index');
 
-Route::get('product/{id}', 'FrontController@show')->name('show_product');
 
-Route::get('category/{id}', 'FrontController@showCategory')->name('show_product_category');
 
-Route::get('sales', 'FrontController@showSales')->name('show_product_sales');
+Route::get('/product/{id}', 'FrontController@show')->name('show_product');
+
+Route::get('/category/{id}', 'FrontController@showCategory')->name('show_product_category');
+
+Route::get('/sales', 'FrontController@showSales')->name('show_product_sales');
 
 Route::get('/', 'FrontController@index')->name('home');
 

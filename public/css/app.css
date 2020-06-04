@@ -19,9 +19,11 @@
 }
 
 .product-img {
-  width: 80%;
-  display: block;
+  height: 400px !important;
   margin: 0 auto;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .pagination {

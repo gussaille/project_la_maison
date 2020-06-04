@@ -9,9 +9,12 @@
         @else
              produit
         @endif</p>
+
+    <h1>Tous nos produits</h1>
+
     {{ $products->links() }}
 
-    <div class="row mb-2">
+    <div class="row col-md-12 mb-2">
 
         @foreach($products as $product)
             <div class="col-md-4  mb-1 home-thumbnail">

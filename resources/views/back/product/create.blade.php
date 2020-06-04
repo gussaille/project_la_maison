@@ -76,12 +76,11 @@
 
                         <div class="form">
                             <div class="form-group">
-                                <h2>Image</h2>
-                                <label for="url">Enter an https:// URL:</label>
+                                <label for="url">Image url</label>
 
                                 <input type="url" name="url_image" id="url"
-                                       placeholder="https://example.com"
-                                       pattern="https://.*" size="300">
+                                       placeholder="https://example.jpg"
+                                       pattern="https://.*">
                                 @if($errors->has('url_image'))
                                     <span class="error bg-warning">{{ $errors->first('url_image')}}</span>
                                 @endif
@@ -124,7 +123,7 @@
                             <div class="form-group">
                                 <label for="reference">Référence du produit</label>
                                 <input type="text" name="reference" value="{{ old('reference') }}" class="form-control"
-                                       id="reference" />
+                                       id="reference" minlength="16" />
                                 @if($errors->has('reference')) <span class="error bg-warning">{{ $errors->first
                                 ('reference')
                                 }}</span> @endif

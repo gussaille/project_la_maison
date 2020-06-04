@@ -4,12 +4,12 @@
     <div class="col-md-12">
 
         <div class="m-3 row d-flex justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <img class="product-img img-fluid" src="{{ $product->url_image }}" alt="{{
                 $product->title
                 }}" />
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <p class="font-weight-bold h4">{{ $product->title }}</p>
                 <p>Ref : {{$product->reference}}</p>
                 <p>Prix : {{$product->price}}€</p>

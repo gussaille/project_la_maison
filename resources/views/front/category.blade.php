@@ -11,9 +11,11 @@
         @endif</p>
     </p>
 
-    {{ $products->links() }}
 
     <h1>Vêtements pour {{ $category->title }}</h1>
+
+    {{ $products->links() }}
+
     <div class="row mb-2">
 
     @foreach($products as $product)

@@ -2,6 +2,8 @@
 
 @section('content')
     <div class="container">
+        <a class="text-dark text-decoration-none text-center" href="{{ route('product.create') }}">Ajouter un
+            produit</a>
 
         <table class="table table-striped">
             <thead>
@@ -15,12 +17,14 @@
             </tr>
             </thead>
             <tbody>
+            {{$products->links()}}
 
                 @foreach($products as $product)
                     <tr>
-                        <td>{{$product->title}}</td>
+                        <td><a class="text-dark" href="{{route('show_product', $product->id)
+                        }}">{{$product->title}}</a></td>
                         <td>
-                            @if($product->category_id === 1)
+                            @if($product->category_id == 1)
                                 Homme
                             @else
                                 Femme
@@ -39,28 +43,25 @@
 
                         <td>
                             <button class="bg-secondary btn ">
-                                <a class="text-light text-decoration-none" href="">Editer</a></button>
+                                <a class="text-light text-decoration-none" href="{{route('product.edit', $product->id)}}">Editer</a>
+                            </button>
                         </td>
                         <td>
-                            <button class="bg-danger btn ">
-                                <a class="text-light text-decoration-none" href="">Supprimer</a>
-                            </button>
 
-{{--                            <form class="delete" method="POST" action="{{route('book.destroy', $product->id)}}">--}}
-{{--                                @method('DELETE')--}}
-{{--                                --}}
-{{--                            token de sécurité qui permet de sécuriser les formulaires --}}
-{{--                            si ce token n'est pas présent Laravel ne traitera pas le formulaire permet d'éviter les attaques csrf ou --}}
-{{--                            attaque par formulaire --}}
-{{--                            --}}
-{{--                                @csrf--}}
-{{--                                <input class="btn btn-danger" type="submit" value="delete">--}}
-{{--                            </form>--}}
+                            <form class="delete" method="POST" action="{{route('product.destroy', $product->id)}}">
+                                @method('DELETE')
+                                @csrf
+                                <input class="btn btn-danger text-light" type="submit" value="delete">
+                            </form>
                         </td>
                     </tr>
 
                 @endforeach
+
             </tbody>
+
         </table>
+        {{$products->links()}}
+
     </div>
 @endsection
