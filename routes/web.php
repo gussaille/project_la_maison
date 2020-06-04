@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::get('/product/create', 'ProductController@create');
+
+Route::post('/product', 'ProductController@store')->name('product.store');
+
+Route::get('/admin', 'ProductController@index')->name('product.index');
+
 Route::get('product/{id}', 'FrontController@show')->name('show_product');
 
 Route::get('category/{id}', 'FrontController@showCategory')->name('show_product_category');
@@ -23,9 +29,7 @@ Route::get('sales', 'FrontController@showSales')->name('show_product_sales');
 Route::get('/', 'FrontController@index')->name('home');
 
 
-Route::get('/product/create', 'ProductController@create');
 
 
-Route::get('/admin', 'ProductController@index');
 
 

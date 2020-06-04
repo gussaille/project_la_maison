@@ -10,6 +10,7 @@ class ProductController extends Controller
 {
     private $paginate = 10;
 
+
     public function index()
     {
         $products = Product::paginate($this->paginate);
@@ -20,13 +21,36 @@ class ProductController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+    public function create(Product $products)
     {
-        return view('back.product.create');
+        $categories = Category::pluck('title', 'id');
+
+        return view('back.product.create', [
+            'categories' => $categories, 'products'=>$products
+        ]);
+    }
+
+
+    public function store(Request $request)
+    {
+
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'category_id' => 'integer',
+            'size' => 'integer',
+            'price' => 'required|regex:/^\d+(\.\d{1,2})?$/',
+            'reference'=> 'required',
+            'code' => 'in:solde,new',
+            'status' => 'in:published,unpublished',
+            'url_image' => 'active_url'
+
+        ]);
+
+        $product = Product::create($request->all());
+
+        return redirect()->route('product.index');
+
     }
 }

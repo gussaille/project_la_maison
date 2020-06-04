@@ -2,7 +2,13 @@
 
 @section('content')
 
-    <p class="p-2 d-inline-block bg-dark text-light float-right">{{$products->total()}} produits</p>
+    <p class="p-2 d-inline-block bg-dark text-light float-right">
+        {{$products->total()}}
+        @if($products->total() > 0)
+             produits
+        @else
+             produit
+        @endif</p>
     {{ $products->links() }}
 
     <div class="row mb-2">

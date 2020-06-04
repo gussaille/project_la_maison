@@ -2,12 +2,19 @@
 
 @section('content')
 
-    <p class="p-2 d-inline-block bg-dark text-light float-right">{{$products->total()}} produits</p>
+    <p class="p-2 d-inline-block bg-dark text-light float-right">
+        {{$products->total()}}
+        @if($products->total() > 0)
+            produits
+        @else
+            produit
+        @endif</p>
+    </p>
 
     {{ $products->links() }}
 
     <h1>Vêtements pour {{ $category->title }}</h1>
-    <div class="row">
+    <div class="row mb-2">
 
     @foreach($products as $product)
         <div class="col-md-4  mb-1 home-thumbnail">
