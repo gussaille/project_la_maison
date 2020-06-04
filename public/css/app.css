@@ -26,6 +26,10 @@
      object-fit: cover;
 }
 
+.product-reference {
+  font-size: 12px;
+}
+
 .pagination {
   display: flex;
   justify-content: center;

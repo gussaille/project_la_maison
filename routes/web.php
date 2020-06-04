@@ -22,10 +22,7 @@ Route::put('/product/{id}', 'ProductController@update')->name('product.update');
 
 Route::post('/product', 'ProductController@store')->name('product.store');
 
-Route::post('/product', 'ProductController@store')->name('product.store');
-
 Route::delete('/product/{id}', 'ProductController@destroy')->name('product.destroy');
-
 
 Route::get('/admin', 'ProductController@index')->name('product.index');
 
@@ -35,7 +32,7 @@ Route::get('/product/{id}', 'FrontController@show')->name('show_product');
 
 Route::get('/category/{id}', 'FrontController@showCategory')->name('show_product_category');
 
-Route::get('/sales', 'FrontController@showSales')->name('show_product_sales');
+Route::get('/sales', 'FrontController@showSales')->name('product.sales');
 
 Route::get('/', 'FrontController@index')->name('home');
 

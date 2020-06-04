@@ -8,7 +8,7 @@
             produits
         @else
             produit
-        @endif</p>
+        @endif
     </p>
 
 

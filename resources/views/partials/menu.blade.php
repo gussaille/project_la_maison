@@ -9,7 +9,7 @@
                 <a class="nav-link" href="{{route('home')}}">Accueil</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="{{route('show_product_sales')}}">Soldes</a>
+                <a class="nav-link" href="{{route('product.sales')}}">Soldes</a>
             </li>
             @if(isset($category))
                 @forelse($category as $id => $title)

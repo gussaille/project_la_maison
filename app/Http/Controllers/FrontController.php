@@ -8,8 +8,6 @@ use App\Product;
 
 class FrontController extends Controller
 {
-    private $paginate = 6;
-
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +15,7 @@ class FrontController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate($this->paginate);
+        $products = Product::orderBy('created_at', 'desc')->paginate(6);
 
         view()->composer('partials.menu', function ($view) {
             $category = Category::pluck('title', 'id')->all();
@@ -25,27 +23,6 @@ class FrontController extends Controller
         });
 
         return view('front.home', ['products' => $products]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**
@@ -66,45 +43,11 @@ class FrontController extends Controller
         return view('front.show', ['product' => $product]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
     public function showCategory(int $id){
 
         $category = Category::findOrFail($id);
 
-        $products = $category->products()->with('category')->paginate($this->paginate);
+        $products = $category->products()->with('category')->paginate(6);
 
         view()->composer('partials.menu', function ($view) {
             $category = Category::pluck('title', 'id')->all();
@@ -117,14 +60,11 @@ class FrontController extends Controller
         ]);
     }
 
-    public function showSales(int $id){
+    public function showSales(Request $request){
 
-        $category = Category::findOrFail($id);
+        $products = Product::all()->whereIn('code', 'solde');
+        $category = Category::pluck('title', 'id');
 
-        $products = $category->products()->with('category')->paginate($this->paginate);
-
-        return view('front.sales', [
-            'products' => $products,
-        ]);
+        return view('front.sales', ['products' => $products, 'category' => $category]);
     }
 }

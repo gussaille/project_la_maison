@@ -11,7 +11,7 @@
             </div>
             <div class="col-md-2">
                 <p class="font-weight-bold h4">{{ $product->title }}</p>
-                <p>Ref : {{$product->reference}}</p>
+                <p>Référence :<span class="product-reference"> {{$product->reference}}</span></p>
                 <p>Prix : {{$product->price}}€</p>
 
                 <label for="size">Tailles</label>
