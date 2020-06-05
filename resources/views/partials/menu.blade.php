@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg d-flex flex-column align-items-start navbar-light bg-light">
     <div class=" mb-1 d-block brand-nav">
-        <a class="nav-link mb-0 navbar-brand h3 font-weight-bold" href="{{route('home')}}">La Maison | La Boutique</a>
+        <a class="nav-link mb-0 navbar-brand h3 font-weight-bold" href="{{route('home')}}">Boutique | La Maison</a>
         <a class="nav-link link-dashboard mb-0 navbar-brand h3 font-weight-bold" href="{{route('product.index')
         }}">Dashboard</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

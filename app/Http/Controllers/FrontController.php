@@ -47,7 +47,7 @@ class FrontController extends Controller
 
         $category = Category::findOrFail($id);
 
-        $products = $category->products()->with('category')->paginate(6);
+        $products = $category->products()->with('category')->orderBy('created_at', 'desc')->paginate(6);
 
         view()->composer('partials.menu', function ($view) {
             $category = Category::pluck('title', 'id')->all();
@@ -62,7 +62,7 @@ class FrontController extends Controller
 
     public function showSales(Request $request){
 
-        $products = Product::all()->whereIn('code', 'solde');
+        $products = Product::all()->sortByDesc('created_at')->whereIn('code', 'solde');
         $category = Category::pluck('title', 'id');
 
         return view('front.sales', ['products' => $products, 'category' => $category]);

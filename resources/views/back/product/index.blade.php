@@ -41,7 +41,7 @@
 
                         <td>
                             <button class="bg-secondary btn ">
-                                <a class="text-light text-decoration-none" href="{{route('product.edit', $product->id)}}">Editer</a>
+                                <a class="text-light text-decoration-none" href="{{route('product.edit', $product->id)}}">✎</a>
                             </button>
                         </td>
                         <td>
@@ -49,7 +49,7 @@
                             <form class="delete" method="POST" action="{{route('product.destroy', $product->id)}}">
                                 @method('DELETE')
                                 @csrf
-                                <input class="btn btn-danger text-light" type="submit" value="Supprimer">
+                                <input class="btn btn-danger text-light" type="submit" value="&#128465;">
                             </form>
                         </td>
                     </tr>

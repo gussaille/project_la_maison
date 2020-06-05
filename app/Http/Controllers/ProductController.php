@@ -40,7 +40,7 @@ class ProductController extends Controller
             'reference'=> 'string',
             'code' => 'in:solde,new',
             'status' => 'in:published,unpublished',
-            'url_image' => 'nullable|string'
+            'url_image' => 'string'
         ]);
 
         $product = Product::create($request->all());

@@ -84,7 +84,7 @@
 
                                 <input type="url" name="url_image" id="url"
                                        placeholder="https://example.jpg"
-                                       pattern="https://.*">
+                                       pattern="https://.*" value="">
                                 @if($errors->has('url_image'))
                                     <span class="error bg-warning">{{ $errors->first('url_image')}}</span>
                                 @endif
