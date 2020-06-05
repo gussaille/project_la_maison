@@ -40,6 +40,19 @@
   margin-bottom: 15px;
 }
 
+.navbar-brand {
+  padding-left: 8px !important;
+}
+
+.nav-link:hover {
+  text-decoration: underline !important;
+  transition: 0.6s ease-in;
+}
+
+.nav-link {
+  transition: 0.6s ease-in;
+}
+
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors

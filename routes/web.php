@@ -12,19 +12,21 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::prefix('admin')->group(function () {
 
+    Route::get('/product/create', 'ProductController@create')->name('product.create');
 
-Route::get('/product/create', 'ProductController@create')->name('product.create');
+    Route::get('/product/{id}/edit', 'ProductController@edit')->name('product.edit');
 
-Route::get('/product/{id}/edit', 'ProductController@edit')->name('product.edit');
+    Route::put('/product/{id}', 'ProductController@update')->name('product.update');
 
-Route::put('/product/{id}', 'ProductController@update')->name('product.update');
+    Route::post('/product', 'ProductController@store')->name('product.store');
 
-Route::post('/product', 'ProductController@store')->name('product.store');
+    Route::delete('/product/{id}', 'ProductController@destroy')->name('product.destroy');
 
-Route::delete('/product/{id}', 'ProductController@destroy')->name('product.destroy');
+    Route::get('/', 'ProductController@index')->name('product.index');
 
-Route::get('/admin', 'ProductController@index')->name('product.index');
+});
 
 
 

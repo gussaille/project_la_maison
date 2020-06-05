@@ -12,7 +12,7 @@
             en solde
         </p>
 
-        <h1>Les bonnes affaire de la Maison</h1>
+        <h1>Les bonnes affaires de la Maison</h1>
 
         <div class="row mb-2 col-md-12">
 

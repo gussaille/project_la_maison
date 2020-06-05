@@ -2,8 +2,6 @@
 
 @section('content')
     <div class="container">
-        <a class="text-dark text-decoration-none text-center" href="{{ route('product.create') }}">Ajouter un
-            produit</a>
 
         <table class="table table-striped">
             <thead>

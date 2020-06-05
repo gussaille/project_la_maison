@@ -6,3 +6,13 @@
     border-bottom: 1px solid lightgrey !important;
     margin-bottom: 15px;
 }
+.navbar-brand {
+    padding-left: 8px !important;
+}
+.nav-link:hover {
+    text-decoration: underline !important;
+    transition: 0.6s ease-in;
+}
+.nav-link{
+    transition: 0.6s ease-in;
+}

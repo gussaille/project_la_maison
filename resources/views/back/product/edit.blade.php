@@ -66,23 +66,12 @@
                     <div class="form">
                         <div class="form-group">
                             <label for="size">Tailles</label>
-                            <select name="size" id="size">
-                                @foreach([46,48,50,52] as $size)
-                                    <option {{ $product->size == $size ? 'selected' : null }}
-                                             value="{{$size}}">{{$size}}</option>
-                                @endforeach
-{{--                                    @if($product->size != 46)--}}
-{{--                                        <option value="46">46</option>--}}
-{{--                                    @endif--}}
-{{--                                    @if($product->size != 48)--}}
-{{--                                        <option value="48">48</option>--}}
-{{--                                    @endif--}}
-{{--                                    @if($product->size != 50)--}}
-{{--                                        <option value="50">50</option>--}}
-{{--                                    @endif--}}
-{{--                                    @if($product->size != 52)--}}
-{{--                                        <option value="52">52</option>--}}
-{{--                                    @endif--}}
+                                <select name="size" id="size">
+
+                                    @foreach([46,48,50,52] as $size)
+                                        <option {{ $product->size == $size ? 'selected' : null }}
+                                                 value="{{$size}}">{{$size}}</option>
+                                    @endforeach
 
                                 </select>
 
