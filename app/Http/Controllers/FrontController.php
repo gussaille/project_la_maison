@@ -13,6 +13,7 @@ class FrontController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // Display products list on the Homepage
     public function index()
     {
         $products = Product::orderBy('created_at', 'desc')->paginate(6);
@@ -31,6 +32,8 @@ class FrontController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    // Show product details
     public function show(int $id)
     {
         $product = Product::with('category')->findOrFail($id);
@@ -43,6 +46,7 @@ class FrontController extends Controller
         return view('front.show', ['product' => $product]);
     }
 
+    //Show product of each category
     public function showCategory(int $id){
 
         $category = Category::findOrFail($id);
@@ -60,6 +64,7 @@ class FrontController extends Controller
         ]);
     }
 
+    // Show only products in sales
     public function showSales(Request $request){
 
         $products = Product::all()->sortByDesc('created_at')->whereIn('code', 'solde');

@@ -1,14 +1,18 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="col-md-12">
 
+    {{--Product Details Page--}}
+    <div class="col-md-12">
         <div class="m-3 row d-flex justify-content-center">
+
             <div class="col-md-8">
+                {{--Display Product image, if error show a default Image--}}
                 <img class="product-img img-fluid" src="{{($product->url_image)}}" onError="this.onerror=null;this.src='https://img.freepik.com/photos-gratuite/main-tenant-sacs-provisions-fond-uni_23-2148286215.jpg?size=626&ext=jpg';" alt="{{
                 $product->title
                 }}" />
             </div>
+
             <div class="col-md-2">
                 <p class="font-weight-bold h4">{{ $product->title }}</p>
                 <p>Référence :<span class="product-reference"> {{$product->reference}}</span></p>
@@ -16,10 +20,10 @@
 
                 <label for="size">Tailles</label>
                 <select name="size" id="size">
-                        <option value=" {{ $product->size }}"> {{ $product->size }}</option>
+                    <option value=" {{ $product->size }}"> {{ $product->size }}</option>
                 </select>
-
             </div>
+
         </div>
 
         <h2>Description : </h2>

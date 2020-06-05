@@ -18,7 +18,7 @@ class ProductController extends Controller
 
     }
 
-
+    // Function Create new product
     public function create(Product $products)
     {
         $categories = Category::pluck('title', 'id');
@@ -28,7 +28,7 @@ class ProductController extends Controller
         ]);
     }
 
-
+    // Function Store product
     public function store(Request $request)
     {
         $request->validate([
@@ -40,7 +40,7 @@ class ProductController extends Controller
             'reference'=> 'string',
             'code' => 'in:solde,new',
             'status' => 'in:published,unpublished',
-            'url_image' => 'string'
+            'url_image' => 'required|string'
         ]);
 
         $product = Product::create($request->all());
@@ -49,6 +49,7 @@ class ProductController extends Controller
 
     }
 
+    // Function Edit already existing product
     public function edit(int $id)
     {
         $product = Product::find($id);
@@ -61,6 +62,7 @@ class ProductController extends Controller
         ]);
     }
 
+    // Function Update already existing product
     public function update(Request $request, int $id)
     {
         $product = Product::find($id);
@@ -74,7 +76,7 @@ class ProductController extends Controller
             'reference'=> 'string',
             'code' => 'in:solde,new',
             'status' => 'in:published,unpublished',
-            'url_image' => 'nullable|string|'
+            'url_image' => 'required|string'
         ]);
 
         $product->update($request->all());
@@ -82,6 +84,7 @@ class ProductController extends Controller
         return redirect()->route('product.index');
     }
 
+    // Function Delete product
     public function destroy(int $id){
 
         $product = Product::where('id', $id)->first();

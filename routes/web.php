@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//Routes Admin
 Route::prefix('admin')->group(function () {
 
     Route::get('/product/create', 'ProductController@create')->name('product.create');
@@ -27,7 +29,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/', 'ProductController@index')->name('product.index');
 
 });
-
 
 
 Route::get('/product/{id}', 'FrontController@show')->name('show_product');

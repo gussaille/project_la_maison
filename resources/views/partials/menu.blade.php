@@ -13,8 +13,8 @@
                 <a class="nav-link text-uppercase" href="{{route('home')}}">Accueil</a>
             </li>
 
+            {{--Display conditionnal menu if Route Prefix is /admin or not--}}
             @if(Route::current()->getPrefix() != '/admin')
-
                 <li class="nav-item active">
                     <a class="nav-link text-uppercase" href="{{route('product.sales')}}">Soldes</a>
                 </li>
@@ -30,6 +30,7 @@
                 @endif
 
             @else
+
                 <li class="nav-item active">
                     <a class="nav-link text-uppercase" href="{{route('product.index')}}">Dashboard</a>
                 </li>
@@ -37,6 +38,7 @@
                     <a class="nav-link text-uppercase" href="{{ route('product.create') }}">Ajouter un
                     produit</a>
                 </li>
+
             @endif
         </ul>
     </div>

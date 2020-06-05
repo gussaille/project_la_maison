@@ -1,12 +1,15 @@
 @extends('layouts.master')
 
 @section('content')
+
+    {{-- Product Edit Form --}}
     <div class="container">
         <h1>Modifier un produit</h1>
 
+        {{--Display Error Message if fields are not well bfullfilled--}}
         @if ($errors->any())
             <div class="alert alert-danger">
-                <p>Vérifier le formulaire il comporte des erreurs !</p>
+                <p>Veuillez remplir tous les champs requis.</p>
             </div>
         @endif
 
@@ -24,7 +27,8 @@
                             <label for="title">Titre</label>
                             <input type="text" name="title" value="{{$product->title}}" class="form-control"
                                    id="title" />
-                            @if($errors->has('title')) <span class="error">{{ $errors->first('title')}}</span> @endif
+                            @if($errors->has('title')) <span class="error text-danger">{{ $errors->first('title')
+                            }}</span> @endif
                         </div>
                     </div>
 
@@ -33,7 +37,8 @@
                             <label for="description">Description</label>
                             <textarea name="description" id="description" cols="20"
                                       rows="6">{{$product->description}}</textarea>
-                            @if($errors->has('description')) <span class="error">{{ $errors->first('description')}}</span> @endif
+                            @if($errors->has('description')) <span class="error text-danger">{{ $errors->first
+                            ('description')}}</span> @endif
                         </div>
                     </div>
 
@@ -43,7 +48,7 @@
                             <input type="text" name="price" value="{{ $product->price}}" class="form-control"
                                    id="price" />
                             @if($errors->has('price'))
-                                <span class="error">{{ $errors->first('price')}}</span>
+                                <span class="error text-danger">{{ $errors->first('price')}}</span>
                             @endif
                         </div>
                     </div>
@@ -58,7 +63,6 @@
                                     <option  {{ $product->category_id == $id ? 'selected' : null }}
                                              value="{{$id}}">{{$name}}</option>
                                 @endforeach
-
                             </select>
                         </div>
                     </div>
@@ -86,13 +90,12 @@
                                        placeholder="https://example.jpg"
                                        pattern="https://.*" value="{{$product->url_image}}">
                                 @if($errors->has('url_image'))
-                                    <span class="error">{{ $errors->first('url_image')}}</span>
+                                    <span class="error text-danger">{{ $errors->first('url_image')}}</span>
                                 @endif
                             </div>
                         </div>
 
                     </div>
-
 
                     <div class="col-md-6">
 
@@ -132,7 +135,7 @@
                                 <label for="reference">Référence du produit</label>
                                 <input type="text" name="reference" value="{{ $product->reference }}" class="form-control"
                                        id="reference" minlength="16" />
-                                @if($errors->has('reference')) <span class="error">{{ $errors->first
+                                @if($errors->has('reference')) <span class="error text-danger">{{ $errors->first
                                     ('reference')
                                     }}</span> @endif
                             </div>

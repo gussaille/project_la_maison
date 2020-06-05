@@ -2,6 +2,7 @@
 
 @section('content')
 
+    {{-- HomePage display all the products available --}}
     <p class="p-2 d-inline-block bg-dark text-light float-right">
         {{$products->total()}}
         @if($products->total() > 0)
@@ -17,6 +18,7 @@
 
     <div class="row col-md-12 mb-2">
 
+        {{--Loop Products--}}
         @foreach($products as $product)
             <div class="col-md-4  mb-1 home-thumbnail">
                 <a class="text-dark text-decoration-none text-center" href="{{ route('show_product', $product->id) }}">
@@ -30,7 +32,6 @@
                     <p class="mb-0">Prix : {{ $product->price }}€</p>
                 </a>
             </div>
-
         @endforeach
 
     </div>
