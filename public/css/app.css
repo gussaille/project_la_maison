@@ -53,6 +53,30 @@
   transition: 0.6s ease-in;
 }
 
+span.page-link {
+  background-color: lightgrey !important;
+  border: 1px solid lightgrey !important;
+  outline: none;
+}
+
+a.page-link {
+  color: black !important;
+}
+
+@media screen and (min-width: 680px) {
+  .link-dashboard {
+    float: right !important;
+  }
+}
+
+@media screen and (min-width: 680px) {
+  .brand-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors

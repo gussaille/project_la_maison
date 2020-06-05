@@ -16,3 +16,25 @@
 .nav-link{
     transition: 0.6s ease-in;
 }
+
+span.page-link{
+    background-color: lightgrey !important;
+    border: 1px solid lightgrey !important;
+    outline: none;
+}
+a.page-link{
+    color: black !important;
+}
+.link-dashboard {
+    @media screen and(min-width: 680px){
+        float: right !important;
+    }
+}
+.brand-nav {
+    @media screen and(min-width: 680px){
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
