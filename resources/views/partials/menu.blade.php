@@ -23,7 +23,7 @@
                             <a class="nav-link text-dark" href="{{url('category', $id)}}">{{ ucfirst($title) }}</a>
                         </li>
                     @empty
-                        <a class="dropdown-item" href="#">Aucunes catégories</a>
+                        <a class="nav-link text-dark" nohref>Aucune catégorie</a>
                     @endforelse
                 @endif
 

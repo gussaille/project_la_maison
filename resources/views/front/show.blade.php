@@ -5,7 +5,7 @@
 
         <div class="m-3 row d-flex justify-content-center">
             <div class="col-md-8">
-                <img class="product-img img-fluid" src="{{ $product->url_image }}" alt="{{
+                <img class="product-img img-fluid" src="{{($product->url_image)}}" onError="this.onerror=null;this.src='https://img.freepik.com/photos-gratuite/main-tenant-sacs-provisions-fond-uni_23-2148286215.jpg?size=626&ext=jpg';" alt="{{
                 $product->title
                 }}" />
             </div>

@@ -50,10 +50,14 @@
                             <div class="form-group">
                                 <label for="category">Catégorie</label>
                                 <select name="category_id" id="category">
-
-                                    @foreach($categories as $id => $name)
-                                        <option {{ old('category_id') == $id ?'selected' : null }} value="{{$id}}">{{$name}}</option>
-                                    @endforeach
+                                    @if(!$categories)
+                                        @foreach($categories as $id => $name)
+                                            <option {{ old('category_id') == $id ?'selected' : null }} value="{{$id}}">{{$name}}</option>
+                                        @endforeach
+                                    @else
+                                        <option value="1">Homme</option>
+                                        <option value="2">Femme</option>
+                                    @endif
 
                                 </select>
                             </div>

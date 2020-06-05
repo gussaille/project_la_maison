@@ -88,9 +88,6 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return redirect()->route('product.index')->with('message', [
-            'type' => 'alert-success',
-            'content' => 'success delete book'
-        ]);
+        return redirect()->route('product.index');
     }
 }

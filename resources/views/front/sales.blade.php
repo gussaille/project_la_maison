@@ -20,7 +20,7 @@
                 <div class="col-md-4  mb-1 home-thumbnail">
                     <a class="text-dark text-decoration-none text-center" href="{{ route('show_product', $product->id) }}">
 
-                        <img class="img-thumbnail" src="{{ $product->url_image }}" alt="{{
+                        <img class="img-thumbnail" src="{{($product->url_image)}}" onError="this.onerror=null;this.src='https://img.freepik.com/photos-gratuite/main-tenant-sacs-provisions-fond-uni_23-2148286215.jpg?size=626&ext=jpg';" alt="{{
                     $product->title }}" />
 
                         <p class="mb-1 font-weight-bold">{{ $product->title }}</p>
