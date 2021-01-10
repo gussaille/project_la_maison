@@ -6,7 +6,7 @@
     <p class="p-2 d-inline-block bg-dark text-light float-right">
         {{$products->total()}}
         @if($products->total() > 0)
-             produits
+             produits 
         @else
              produit
         @endif
